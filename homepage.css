@@ -1,0 +1,45 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+/* Style pour l'AnchorPane */
+/* Fixer la taille du AnchorPane */
+.anchor-pane {
+    -fx-pref-width: 715px;    /* Largeur préférée */
+    -fx-pref-height: 510px;   /* Hauteur préférée */
+    -fx-min-width: 715px;     /* Largeur minimale */
+    -fx-min-height: 510px;    /* Hauteur minimale */
+    -fx-max-width: 715px;     /* Largeur maximale */
+    -fx-max-height: 510px;    /* Hauteur maximale */
+    -fx-background-color: purple;
+}
+
+/* Optionnel : Style pour les éléments à l'intérieur */
+.pane {
+    -fx-pref-width: 320px;
+    -fx-pref-height: 469px;
+}
+
+/* Pour les ImageView */
+.image-view {
+    -fx-fit-width: 200px;
+    -fx-fit-height: 76px;
+}
+
+/* Pour les Labels, Button, etc. */
+.label {
+    -fx-font-size: 14px;
+}
+
+.button {
+    -fx-font-size: 14px;
+    -fx-pref-width: 129px;
+    -fx-pref-height: 32px;
+}
+
+
+
+

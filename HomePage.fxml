@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="510.0" maxWidth="715.0" minHeight="472.0" minWidth="690.0" prefHeight="472.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.HomePageController">
+   
+    <children>
+        <Pane layoutX="-3.0" prefHeight="469.0" prefWidth="320.0" style="-fx-background-color: rgb(197, 159, 197);" stylesheets="@homepage.css">
+            <children>
+                <ImageView fitHeight="76.0" fitWidth="200.0" layoutX="60.0" layoutY="7.0">
+                    <image>
+                        <Image url="@../images/logoGestPaie.PNG" />
+                    </image>
+                </ImageView>
+                <Label alignment="CENTER" layoutX="60.0" layoutY="76.0" prefHeight="45.0" prefWidth="200.0" text="Gerer la paie de vos employes en toute securite" textAlignment="CENTER" wrapText="true">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Separator layoutX="29.0" layoutY="130.0" prefHeight="4.0" prefWidth="264.0" />
+                <Label layoutX="28.0" layoutY="143.0" text="Email">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="email" layoutX="55.0" layoutY="172.0" prefHeight="25.0" prefWidth="237.0" />
+                <Label layoutX="28.0" layoutY="215.0" text="Mot de passe">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <PasswordField fx:id="password" layoutX="55.0" layoutY="243.0" prefHeight="25.0" prefWidth="237.0" />
+                <Button fx:id="connecter" layoutX="89.0" layoutY="317.0" mnemonicParsing="false" onAction="#seConnecter" prefHeight="32.0" prefWidth="129.0" style="-fx-background-color: rgb(95, 14, 172);" text="Se connecter" textFill="WHITE">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                <Label layoutX="86.0" layoutY="388.0" text="Mot de passe oublie ?">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+            <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="28.0" layoutY="172.0">
+               <image>
+                  <Image url="@../images/emailicon.jpeg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="28.0" layoutY="243.0">
+               <image>
+                  <Image url="@../images/password.png" />
+               </image>
+            </ImageView>
+            </children>
+        </Pane>
+        <Pane layoutX="317.0" prefHeight="469.0" prefWidth="387.0">
+            <children>
+                <ImageView fitHeight="469.0" fitWidth="387.0" layoutX="-2.0" layoutY="1.0">
+                    <image>
+                        <Image url="@../images/login-animate.gif" />
+                    </image>
+                </ImageView>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

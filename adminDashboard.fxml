@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="490.0" prefWidth="1316.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.AdminDashboardController">
+    <stylesheets>
+        <URL value="@admindashboard.css" />
+    </stylesheets>
+   <children>
+      <Pane prefHeight="588.0" prefWidth="223.0" style="-fx-background-color: rgb(197, 159, 197);">
+         <children>
+            <ImageView fitHeight="59.0" fitWidth="156.0" layoutX="32.0" layoutY="7.0">
+               <image>
+                  <Image url="@../images/logoGestPaie.PNG" />
+               </image>
+            </ImageView>
+            <ListView layoutX="10.0" layoutY="89.0" prefHeight="474.0" prefWidth="200.0" style="-fx-background-color: rgb(235, 235, 235);" />
+            <Separator layoutX="10.0" layoutY="75.0" prefWidth="200.0" />
+            <Button layoutX="47.0" layoutY="122.0" mnemonicParsing="false" onAction="#compterEmployes" prefHeight="34.0" prefWidth="163.0" text="Tableau de bord" />
+            <Button layoutX="47.0" layoutY="156.0" mnemonicParsing="false" onAction="#updateTable" prefHeight="34.0" prefWidth="163.0" text="Listes" />
+            <Button layoutX="47.0" layoutY="278.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="163.0" text="Notifications" />
+            <Label layoutX="87.0" layoutY="95.0" text="Actions">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="85.0" layoutY="252.0" text="Compte">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button layoutX="47.0" layoutY="190.0" mnemonicParsing="false" onAction="#loadBulletin" prefHeight="34.0" prefWidth="163.0" text="Bulletin de paie" />
+            <Separator layoutX="12.0" layoutY="242.0" prefWidth="200.0" />
+            <Button layoutX="47.0" layoutY="312.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="163.0" text="Parametres" />
+            <Button layoutX="77.0" layoutY="463.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="99.0" text="Deconnexion" />
+            <ImageView fitHeight="34.0" fitWidth="38.0" layoutX="10.0" layoutY="158.0">
+               <image>
+                  <Image url="@../images/listes.jpeg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="34.0" fitWidth="38.0" layoutX="10.0" layoutY="122.0">
+               <image>
+                  <Image url="@../images/dashboard.jpeg" />
+               </image>
+            </ImageView>
+            <Separator layoutX="10.0" layoutY="155.0" prefHeight="3.0" prefWidth="38.0" />
+            <Separator layoutX="10.0" layoutY="191.0" prefHeight="3.0" prefWidth="38.0" />
+            <ImageView fitHeight="34.0" fitWidth="38.0" layoutX="10.0" layoutY="278.0">
+               <image>
+                  <Image url="@../images/paie1.jpeg" />
+               </image>
+            </ImageView>
+            <Separator layoutX="13.0" layoutY="311.0" prefHeight="3.0" prefWidth="38.0" />
+            <ImageView fitHeight="34.0" fitWidth="38.0" layoutX="10.0" layoutY="312.0">
+               <image>
+                  <Image url="@../images/settings.jpeg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="34.0" fitWidth="38.0" layoutX="39.0" layoutY="463.0">
+               <image>
+                  <Image url="@../images/logout.jpeg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="34.0" fitWidth="38.0" layoutX="10.0" layoutY="190.0">
+               <image>
+                  <Image url="@../images/paiement.jpeg" />
+               </image>
+            </ImageView>
+            <Separator layoutX="10.0" layoutY="189.0" prefHeight="3.0" prefWidth="38.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="223.0" layoutY="49.0" prefHeight="539.0" prefWidth="1093.0">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Tableau de bord">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="49.0" prefHeight="17.0" prefWidth="268.0" text="Soyez a jour sur les statistiques de l'entreprise">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="201.0" text="Liste des employes">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TableView fx:id="employeTableView" layoutX="15.0" layoutY="227.0" prefHeight="200.0" prefWidth="1025.0">
+              <columns>
+                <TableColumn fx:id="idEmColumn" prefWidth="69.0" text="Identifiant" />
+                <TableColumn fx:id="nomEmColumn" prefWidth="106.0" text="Nom" />
+                <TableColumn fx:id="emailColumn" prefWidth="150.0" text="Email" />
+                <TableColumn fx:id="salaireColumn" prefWidth="75.0" text="Salaire" />
+                <TableColumn fx:id="dateEmbaucheColumn" prefWidth="141.0" text="Date Embauche" />
+                <TableColumn fx:id="numEmColumn" prefWidth="138.0" text="Numéro Employé" />
+                <TableColumn fx:id="numSecuColumn" prefWidth="152.0" text="Numéro Securite sociale" />
+                <TableColumn fx:id="typeColumn" prefWidth="67.0" text="Type" />
+                <TableColumn fx:id="secteurColumn" prefWidth="126.0" text="Secteur" />
+              </columns>
+            </TableView>
+            <Label fx:id="nbEmployes" alignment="TOP_LEFT" layoutX="15.0" layoutY="78.0" onMouseClicked="#compterEmployes" prefHeight="87.0" prefWidth="452.0" text="Tableau de bord" textFill="#d065eb" wrapText="true">
+               <font>
+                  <Font size="24.0" />
+               </font></Label>
+            
+            <Button layoutX="593.0" layoutY="199.0" mnemonicParsing="false" style="-fx-background-color: blue;" text="Rechercher" textFill="WHITE" />
+            <TextField fx:id="idTextField" layoutX="110.0" layoutY="441.0" prefHeight="25.0" prefWidth="200.0" text="identifiant" />
+            <Button layoutX="15.0" layoutY="483.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: blue;" text="Modifier" textFill="WHITE" />
+            <Button layoutX="211.0" layoutY="483.0" mnemonicParsing="false" onAction="#supprimerEmploye" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: red;" text="Supprimer" textFill="WHITE" />
+            <Label layoutX="15.0" layoutY="440.0" text="Identifiant" textFill="#ff2323">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <TextField layoutX="437.0" layoutY="199.0" prefHeight="25.0" prefWidth="156.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="223.0" prefHeight="50.0" prefWidth="1093.0" style="-fx-background-color: white; -fx-border-color: black;">
+         <children>
+            <Label layoutX="21.0" layoutY="12.0" prefHeight="17.0" prefWidth="275.0" style="-fx-background-color: white;" text="Bienvenue cher administrateur">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+         </children>
+      </Pane>
+      <Button layoutX="1088.0" layoutY="245.0" mnemonicParsing="false" onAction="#loadFormEmploye" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: rgb(88, 226, 88);" text="Ajouter un employe" textFill="WHITE" />
+   </children>
+</AnchorPane>

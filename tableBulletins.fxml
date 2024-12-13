@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="696.0" prefWidth="1349.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.TableBulletinsController">
+    <stylesheets>
+        <URL value="@tablebulletins.css" />
+    </stylesheets>
+   <children>
+      <Button layoutX="42.0" layoutY="21.0" mnemonicParsing="false" onAction="#updateBulletinTable" style="-fx-background-color: blue;" text="Mettre a jour la table" textFill="WHITE" />
+      <TableView fx:id="bulletinTableView" layoutX="42.0" layoutY="116.0" prefHeight="200.0" prefWidth="699.0">
+        <columns>
+          <TableColumn fx:id="idBulColumn" prefWidth="75.0" text="Identifiant" />
+          <TableColumn fx:id="dateRemiseColumn" prefWidth="96.0" text="Date de remise" />
+          <TableColumn fx:id="nomColumn" prefWidth="98.0" text="Nom de societe" />
+          <TableColumn fx:id="adresseColumn" prefWidth="131.0" text="Adresse de la societe" />
+          <TableColumn fx:id="employeColumn" prefWidth="124.0" text="Employe associe" />
+          <TableColumn fx:id="abscenceColumn" prefWidth="91.0" text="Abscence(H)" />
+          <TableColumn fx:id="primeColumn" prefWidth="83.0" text="Prime" />
+        </columns>
+      </TableView>
+      <Label layoutX="42.0" layoutY="87.0" text="Liste de tous les bulletins">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="51.0" layoutY="617.0" text="Imprimer un bulletin">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <TextField fx:id="idbul" layoutX="218.0" layoutY="615.0" prefHeight="25.0" prefWidth="123.0" />
+      <Button onAction="#printBulletin" layoutX="557.0" layoutY="615.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="184.0" style="-fx-background-color: yellow;" text="imprimer le bulletin">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="530.0" layoutY="85.0" mnemonicParsing="false" onAction="#loadBulletin" prefHeight="25.0" prefWidth="211.0" style="-fx-background-color: rgb(88, 226, 88);" text="Ajouter un nouveau bulletin de paie" textFill="WHITE" />
+      <Button fx:id="rButton" layoutX="42.0" layoutY="342.0" mnemonicParsing="false" onAction="#Redevance" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: red;" text="Redevance audiovisuelle" textFill="WHITE" />
+      <Label fx:id="rLabel" layoutX="217.0" layoutY="346.0" prefHeight="17.0" prefWidth="315.0" text="Redevance" />
+      <TextField fx:id="rTextField" layoutX="557.0" layoutY="342.0" prefHeight="25.0" prefWidth="184.0" />
+      <Button fx:id="cButton" layoutX="42.0" layoutY="438.0" mnemonicParsing="false" onAction="#Caisse" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: red;" text="Caisse Nationale" textFill="WHITE" />
+      <Label fx:id="cLabel" layoutX="218.0" layoutY="442.0" prefHeight="17.0" prefWidth="315.0" text="Caisse nationale" />
+      <TextField fx:id="cTextField" layoutX="557.0" layoutY="438.0" prefHeight="25.0" prefWidth="184.0" />
+      <Button fx:id="confirmRedevance" layoutX="557.0" layoutY="367.0" mnemonicParsing="false" onAction="#Redevancecon" prefHeight="25.0" prefWidth="184.0" style="-fx-background-color: blue;" text="Confirmer la redevance" textFill="WHITE" />
+      <Button fx:id="confirmCaisse" layoutX="557.0" layoutY="463.0" mnemonicParsing="false" onAction="#Caissecon" prefHeight="25.0" prefWidth="184.0" style="-fx-background-color: blue;" text="Confirmer la caisse" textFill="WHITE" />
+      <Button fx:id="pButton" layoutX="42.0" layoutY="524.0" mnemonicParsing="false" onAction="#Prime" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: rgb(88, 226, 88);" text="Prime du mois" textFill="WHITE" />
+      <TextField fx:id="pTextField" layoutX="557.0" layoutY="524.0" prefHeight="25.0" prefWidth="184.0" />
+      <Button fx:id="confirmPrime" layoutX="557.0" layoutY="549.0" mnemonicParsing="false" onAction="#confirmerPrime" prefHeight="25.0" prefWidth="184.0" style="-fx-background-color: blue;" text="Confirmer la prime" textFill="WHITE" />
+      <Label fx:id="pLabel" layoutX="218.0" layoutY="528.0" prefHeight="17.0" prefWidth="265.0" text="Prime" />
+      <Separator layoutX="763.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="696.0" prefWidth="0.0" style="-fx-background-color: black;" />
+      <Pane layoutX="769.0" layoutY="-1.0" prefHeight="696.0" prefWidth="579.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="212.0" layoutY="21.0" text="BULLETIN DE PAIE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="267.0" layoutY="56.0" text="EN FCFA" />
+            <Label layoutX="290.0" layoutY="90.0" prefHeight="17.0" prefWidth="107.0" text="Date d'embauche :" />
+            <Label layoutX="290.0" layoutY="114.0" prefHeight="17.0" prefWidth="107.0" text="Date de remise :" />
+            <Label layoutX="289.0" layoutY="137.0" prefHeight="17.0" prefWidth="107.0" text="Securite sociale :" />
+            <Pane layoutX="31.0" layoutY="90.0" prefHeight="64.0" prefWidth="175.0" style="-fx-border-color: black; -fx-background-color: white;">
+               <children>
+                  <Label layoutX="58.0" layoutY="14.0" prefHeight="17.0" prefWidth="116.0" text="SOCIETE MAHIMA" />
+                  <Label layoutX="58.0" layoutY="35.0" text="AKWA" />
+               </children>
+            </Pane>
+            <Label fx:id="dateRemise" layoutX="405.0" layoutY="114.0" prefHeight="17.0" prefWidth="137.0" text="00-remise-00" />
+            <Label fx:id="securite" layoutX="405.0" layoutY="137.0" prefHeight="17.0" prefWidth="107.0" text="secu14586" />
+            <Label fx:id="dateEmbauche" layoutX="405.0" layoutY="90.0" prefHeight="17.0" prefWidth="137.0" text="00-embauche-00" />
+            <Pane layoutX="31.0" layoutY="195.0" prefHeight="137.0" prefWidth="513.0" style="-fx-border-color: black; -fx-background-color: white;">
+               <children>
+                  <Label fx:id="nom" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="248.0" text="POUCHE HAKOUA VANEL">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="42.0" prefHeight="17.0" prefWidth="86.0" text="Classification :" />
+                  <Label layoutX="14.0" layoutY="69.0" prefHeight="17.0" prefWidth="86.0" text="Categorie : " />
+                  <Label layoutX="14.0" layoutY="99.0" prefHeight="17.0" prefWidth="86.0" text="Secteur :" />
+                  <Label layoutX="273.0" layoutY="42.0" prefHeight="17.0" prefWidth="92.0" text="Salaire de base :" />
+                  <Label layoutX="273.0" layoutY="99.0" prefHeight="17.0" prefWidth="116.0" text="Nombres Absences :" />
+                  <Line endX="379.0" layoutX="115.0" layoutY="39.0" startX="-100.0" />
+                  <Label fx:id="salBase" layoutX="365.0" layoutY="38.0" prefHeight="25.0" prefWidth="113.0" text="2 fcfa">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="95.0" layoutY="42.0" prefHeight="17.0" prefWidth="137.0" text="SALARIE - NON CADRE" />
+                  <Label fx:id="categorie" layoutX="95.0" layoutY="69.0" prefHeight="17.0" prefWidth="86.0" text="Caissier" />
+                  <Label fx:id="secteur" layoutX="95.0" layoutY="99.0" prefHeight="17.0" prefWidth="86.0" text="Caisse 01" />
+                  <Label fx:id="nbAbs" layoutX="389.0" layoutY="99.0" prefHeight="17.0" prefWidth="86.0" text="05 heures" />
+               </children>
+            </Pane>
+            <Pane layoutX="31.0" layoutY="348.0" prefHeight="270.0" prefWidth="513.0" style="-fx-background-color: white; -fx-border-color: black;">
+               <children>
+                  <Label layoutX="30.0" layoutY="14.0" text="DESIGNATION">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="383.0" layoutY="14.0" prefHeight="20.0" prefWidth="45.0" text="BASE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Line endX="405.0" layoutX="108.0" layoutY="41.0" startX="-108.0" />
+                  <Line endX="405.0" layoutX="108.0" layoutY="87.0" startX="-108.0" />
+                  <Line endX="-99.5" endY="195.5" layoutX="356.0" layoutY="1.0" startX="-100.0" />
+                  <Line endX="405.0" layoutX="108.0" layoutY="124.0" startX="-108.0" />
+                  <Line endX="405.0" layoutX="108.0" layoutY="159.0" startX="-108.0" />
+                  <Line endX="405.0" layoutX="108.0" layoutY="196.0" startX="-108.0" />
+                  <Label layoutX="75.0" layoutY="221.0" prefHeight="17.0" prefWidth="155.0" text="Salaire net :">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="salNet" layoutX="286.0" layoutY="226.0" prefHeight="17.0" prefWidth="155.0" text="200 fcfa">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="16.0" layoutY="48.0" text="Salaire de base :" />
+                  <Label layoutX="16.0" layoutY="65.0" text="(Renumaration brute)" />
+                  <Label layoutX="16.0" layoutY="99.0" text="Redevance audiovisuelle (CRTV)" />
+                  <Label layoutX="4.0" layoutY="135.0" prefHeight="17.0" prefWidth="256.0" text="Caisse Nationale de Prévoyance Sociale (CNPS)" />
+                  <Label layoutX="16.0" layoutY="170.0" text="Prime mensuelle" />
+                  <Label fx:id="salBaseTable" layoutX="273.0" layoutY="53.0" prefHeight="17.0" prefWidth="155.0" text="20 fcfa">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="redevance" layoutX="273.0" layoutY="131.0" prefHeight="17.0" prefWidth="155.0" text="10000 fcfa">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="caisse" layoutX="273.0" layoutY="95.0" prefHeight="17.0" prefWidth="155.0" text="2800 fcfa">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="prime" layoutX="273.0" layoutY="166.0" prefHeight="17.0" prefWidth="155.0" text="PrimeVal">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Label layoutX="34.0" layoutY="625.0" prefHeight="64.0" prefWidth="513.0" text="Veuillez conserver ce bulletin de paie pour une durée indéterminée, il pourra être requis pour des démarches administratives futures. Merci de votre compréhension." wrapText="true">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label fx:id="test" layoutX="469.0" layoutY="665.0" text="Salaire employe ----------" />
+      <Button layoutX="51.0" layoutY="653.0" mnemonicParsing="false" onAction="#calculerSalaireAction" prefHeight="25.0" prefWidth="155.0" text="Calculer le salaire" />
+   </children>
+</AnchorPane>
